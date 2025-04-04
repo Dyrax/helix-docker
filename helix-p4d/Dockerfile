@@ -44,7 +44,7 @@ ARG P4NAME=master
 ARG P4TCP=1666
 ARG P4USER=admin
 ARG P4PASSWD=pass12349ers
-ARG P4CASE=-C0
+ARG P4CASE=0
 ARG P4CHARSET=utf8
 
 # Dynamic Environment
@@ -64,7 +64,8 @@ ENV P4HOME=/p4
 # Derived Environment
 ENV P4ROOT=$P4HOME/root \
   P4DEPOTS=$P4HOME/depots \
-  P4CKP=$P4HOME/checkpoints
+  P4CKP=$P4HOME/checkpoints \
+  P4CASEPARAM="-C${P4CASE}"
 
 # Expose Perforce; TCP port and volumes
 EXPOSE $P4TCP

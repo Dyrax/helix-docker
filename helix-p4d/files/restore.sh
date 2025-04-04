@@ -23,13 +23,13 @@ rm -rf $P4ROOT/*
 echo $P4NAME > $P4ROOT/server.id
 
 ## Restore and Upgrade Checkpoint
-p4d $P4CASE -r $P4ROOT -jr -z $P4CKP/latest
-p4d $P4CASE -r $P4ROOT -xu
+p4d $P4CASEPARAM -r $P4ROOT -jr -z $P4CKP/latest
+p4d $P4CASEPARAM -r $P4ROOT -xu
 
 ## Set key environment variables
-p4d $P4CASE -r $P4ROOT "-cset security=2"
-p4d $P4CASE -r $P4ROOT "-cset ${P4NAME}#server.depot.root=${P4DEPOTS}"
-p4d $P4CASE -r $P4ROOT "-cset ${P4NAME}#journalPrefix=${P4CKP}/${JNL_PREFIX}"
+p4d $P4CASEPARAM -r $P4ROOT "-cset security=2"
+p4d $P4CASEPARAM -r $P4ROOT "-cset ${P4NAME}#server.depot.root=${P4DEPOTS}"
+p4d $P4CASEPARAM -r $P4ROOT "-cset ${P4NAME}#journalPrefix=${P4CKP}/${JNL_PREFIX}"
 
 ## Start Perforce
-p4d $P4CASE -r$P4ROOT -p$P4TCP -L$P4LOG -J$P4JOURNAL -d
+p4d $P4CASEPARAM -r$P4ROOT -p$P4TCP -L$P4LOG -J$P4JOURNAL -d
