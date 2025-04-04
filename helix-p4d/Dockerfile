@@ -80,6 +80,8 @@ ENTRYPOINT \
   /usr/bin/tail -F $P4ROOT/logs/log
 
 HEALTHCHECK \
+  --start-period=30s \
+  --start-interval=1s \
   --interval=2m \
   --timeout=10s \
   CMD p4 info -s > /dev/null || exit 1

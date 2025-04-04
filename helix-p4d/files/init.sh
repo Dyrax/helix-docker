@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Setup directories
 mkdir -p "$P4ROOT"
